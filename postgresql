@@ -1,0 +1,19 @@
+select
+	customer.customer_id,
+	first_name,
+	last_name,
+	email,
+	rental.rental_id,
+	rental_date,
+	return_date,
+	address city_id,
+	city,
+	amount,
+	payment_date
+from
+	customer
+inner join payment on customer.customer_id = payment.customer_id
+inner join rental on customer.customer_id= rental.customer_id
+inner join address on customer.address_id = address.address_id
+inner join city on address.city_id = city.city_id
+
